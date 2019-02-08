@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/AngularJS/AngularUserAdd.js"></script>
+<div>
+    <div ng-app="myApp" ng-controller="myCtrl" ng-init="GetAllData()">
+        <div class="form-horizontal" role="form">
+            <div class="container">
+                <div class="row">
+                    <h2>
+                        <span id="spn">Add New User</span>
+                    </h2>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Name:</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="inputEmail" placeholder="Name" ng-model="Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Lastname:</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="inputPassword" placeholder="LastName" ng-model="LastName">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">UserName:</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="inputLabel3" placeholder="UserName" ng-model="UserName">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Email:</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="inputLabel3" placeholder="Email" ng-model="Email">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-lg-4">
+                        <input type="submit" id="btnSave" class="form-control btn-space" value="Submit" ng-click="InsertData()" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3><a href="List">Turn Back List</a></h3>
+    @Html.Hidden("ID")
+</div>
+

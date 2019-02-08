@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/AngularJS/AngularUserList.js"></script>
+<div>
+    <div data-ng-app="myApp" data-ng-controller="myCtrl" ng-init="GetAllData()">
+        <h3><a href="Add">Add New User</a></h3>
+        <hr />
+        <input type="text" ng-model="arama.Name" placeholder="Kullanıcı'nın Adını Giriniz." />
+        <hr />
+        <table cellpadding="12" class="table table-bordered table-hover">
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Name
+                </th>
+                <td>
+                    LastName
+                </td>
+                <td>
+                    UserName
+                </td>
+                <td>
+                    Email Adress
+                </td>
+                <td>
+                    <b>Actions</b>
+                </td>
+
+            </tr>
+            <tr data-ng-repeat="data in resultt | filter:arama">
+                <td>
+                    {{data.ID}}
+                </td>
+                <td>
+                    {{data.Name | uppercase}}
+                </td>
+                <td>
+                    {{data.LastName | uppercase}}
+                </td>
+                <td>
+                    {{data.UserName | uppercase}}
+                </td>
+                <td>
+                    {{data.Email | uppercase}}
+                </td>
+                <td>
+                    <input type="button" class="btn btn-warning" value="Update" data-ng-click="UpdateUser(data.ID)" />
+                    <input type="button" class="btn btn-danger" value="Delete" data-ng-click="DeleteUser(data.ID)" />
+                </td>
+
+            </tr>
+        </table>
+        <div class="form-horizontal" role="form">
+            <div class="container">
+                <div class="row">
+                    <h2>
+                        <span id="spn">Update User</span>
+                    </h2>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-lg-4">
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Name:</label>
+                            <div class="col-md-8">
+                                <input type="text" name="GetID.Name" data-ng-model="GetID.Name" value="{{GetID.Name}}">
+                            </div>
+                        </div>
+                        <input type="hidden" name="GetID.ID" data-ng-model="GetID.ID" value="{{GetID.ID}}" />
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Lastname:</label>
+                            <div class="col-md-8">
+                                <input type="text" name="GetID.LastName" data-ng-model="GetID.LastName" value="{{GetID.LastName}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">UserName:</label>
+                            <div class="col-md-8">
+                                <input type="text" name="GetID.UserName" data-ng-model="GetID.UserName" value="{{GetID.UserName}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Email:</label>
+                            <div class="col-md-8">
+                                <input type="text" name="GetID.Email" data-ng-model="GetID.Email" value="{{GetID.Email}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-4">
+                            <input type="button" name="btnUpdate" class="form-control btn-space" value="Update" data-ng-click="InsertData(GetID)" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
